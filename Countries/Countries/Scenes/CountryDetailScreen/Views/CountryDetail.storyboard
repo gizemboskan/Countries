@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Country Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CountryDetailViewController" id="Y6W-OH-hqX" customClass="CountryDetailViewController" customModule="Countries" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="CountryDetailView" customModule="Countries" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whJ-3b-LzP">
+                                <rect key="frame" x="0.0" y="45" width="414" height="417.5"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="420" id="wbP-TU-ly0"/>
+                                </constraints>
+                                <imageReference key="image" image="photo" catalog="system" symbolScale="default"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-IX-wuZ">
+                                <rect key="frame" x="20" y="484" width="101" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7P-q8-mGx">
+                                <rect key="frame" x="20" y="529" width="170" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="WgM-NR-hrX"/>
+                                    <constraint firstAttribute="height" constant="32" id="fzW-C9-tIY"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.right" catalog="system" imagePlacement="trailing">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="For More Information  ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="countryDetailButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vm5-gW-hWq"/>
+                                    <action selector="countryDetailButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kvN-78-GDU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCk-KY-fwL">
+                                <rect key="frame" x="131" y="484" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cCk-KY-fwL" firstAttribute="leading" secondItem="7Ts-IX-wuZ" secondAttribute="trailing" constant="10" id="1De-RT-fNl"/>
+                            <constraint firstItem="Y7P-q8-mGx" firstAttribute="top" secondItem="7Ts-IX-wuZ" secondAttribute="bottom" constant="28" id="4DM-kj-RRK"/>
+                            <constraint firstItem="whJ-3b-LzP" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" id="Kdh-DJ-aBG"/>
+                            <constraint firstItem="7Ts-IX-wuZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="a7S-c2-s2s"/>
+                            <constraint firstItem="whJ-3b-LzP" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fim-kF-aVp"/>
+                            <constraint firstItem="whJ-3b-LzP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gBd-rm-Rue"/>
+                            <constraint firstItem="7Ts-IX-wuZ" firstAttribute="top" secondItem="whJ-3b-LzP" secondAttribute="bottom" constant="20" id="qL2-0L-o7r"/>
+                            <constraint firstItem="Y7P-q8-mGx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="uBh-GQ-51S"/>
+                            <constraint firstItem="cCk-KY-fwL" firstAttribute="centerY" secondItem="7Ts-IX-wuZ" secondAttribute="centerY" id="xRP-em-qTy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countryCodeLabel" destination="cCk-KY-fwL" id="hlW-9w-3Ic"/>
+                        <outlet property="countryDetailButton" destination="Y7P-q8-mGx" id="WwP-hz-Qnx"/>
+                        <outlet property="countryDetailView" destination="5EZ-qb-Rvc" id="hp2-57-s74"/>
+                        <outlet property="countryImageView" destination="whJ-3b-LzP" id="91F-Vr-LLr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17.39130434782609" y="119.86607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

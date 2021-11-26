@@ -17,26 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Ep-mfF" customClass="MainScreenView" customModule="Countries" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Ep-mfF" customClass="MainScreenView" customModule="Countries" customModuleProvider="target">
+                                <rect key="frame" x="28" y="8" width="358" height="888"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryListTableViewCell" id="JKo-hw-WpG" customClass="CountryListTableViewCell" customModule="Countries" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="358" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JKo-hw-WpG" id="OzO-Fz-Fq9">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGM-ji-5xi">
-                                                    <rect key="frame" x="36" y="23" width="50" height="14"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <rect key="frame" x="36" y="23" width="41.5" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMp-Q0-3UB">
-                                                    <rect key="frame" x="331" y="23" width="47" height="14"/>
+                                                    <rect key="frame" x="275" y="23" width="47" height="14"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled">
                                                         <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
@@ -65,10 +64,10 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="29C-Ep-mfF" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="av2-jS-JMF"/>
+                            <constraint firstItem="29C-Ep-mfF" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="8" id="av2-jS-JMF"/>
                             <constraint firstAttribute="bottom" secondItem="29C-Ep-mfF" secondAttribute="bottom" id="kAf-eB-ieX"/>
-                            <constraint firstItem="29C-Ep-mfF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ksg-Pt-f9Z"/>
-                            <constraint firstItem="29C-Ep-mfF" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="sq2-QQ-Ifm"/>
+                            <constraint firstItem="29C-Ep-mfF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="ksg-Pt-f9Z"/>
+                            <constraint firstItem="29C-Ep-mfF" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-28" id="sq2-QQ-Ifm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rNH-bz-YGg"/>
