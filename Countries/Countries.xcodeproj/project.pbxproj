@@ -31,8 +31,6 @@
 		7A5CD6902751266B00BEE952 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5CD68F2751266B00BEE952 /* RxCocoa */; };
 		7A5CD6922751266B00BEE952 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5CD6912751266B00BEE952 /* RxRelay */; };
 		7A5CD6942751266B00BEE952 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5CD6932751266B00BEE952 /* RxSwift */; };
-		7A5CD69F27512AC400BEE952 /* FirstBarItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD69E27512AC400BEE952 /* FirstBarItemViewController.swift */; };
-		7A5CD6A127512ACF00BEE952 /* SecondBarItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6A027512ACF00BEE952 /* SecondBarItemViewController.swift */; };
 		7A5CD6A327512B0A00BEE952 /* CountryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6A227512B0A00BEE952 /* CountryDetailViewController.swift */; };
 		7A5CD6A527512B3200BEE952 /* CountryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6A427512B3200BEE952 /* CountryDetailViewModel.swift */; };
 		7A5CD6A727512BC200BEE952 /* CountryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CD6A627512BC200BEE952 /* CountryDetail.storyboard */; };
@@ -45,6 +43,16 @@
 		7A5CD6BC27517E0500BEE952 /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6BB27517E0500BEE952 /* CountryDetailView.swift */; };
 		7A5CD6BE2751858100BEE952 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6BD2751858100BEE952 /* UIImageView+Extension.swift */; };
 		7A5CD6C0275186D100BEE952 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6BF275186D100BEE952 /* Optional+Extensions.swift */; };
+		7A5CD6C227523A3D00BEE952 /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6C127523A3D00BEE952 /* MainScreenBuilder.swift */; };
+		7A5CD6C527523A6900BEE952 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6C427523A6900BEE952 /* TabBarViewController.swift */; };
+		7A5CD6C727523A7600BEE952 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6C627523A7600BEE952 /* TabBarViewModel.swift */; };
+		7A5CD6CE2752554F00BEE952 /* SavedCountriesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6CD2752554F00BEE952 /* SavedCountriesBuilder.swift */; };
+		7A5CD6D02752558000BEE952 /* SavedCountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6CF2752558000BEE952 /* SavedCountriesViewModel.swift */; };
+		7A5CD6D22752558800BEE952 /* SavedCountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6D12752558800BEE952 /* SavedCountriesViewController.swift */; };
+		7A5CD6D4275255F800BEE952 /* SavedCountries.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CD6D3275255F800BEE952 /* SavedCountries.storyboard */; };
+		7A5CD6D62752566F00BEE952 /* SavedCountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6D52752566F00BEE952 /* SavedCountriesView.swift */; };
+		7A5CD6D92752797500BEE952 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5CD6D82752797500BEE952 /* SVGKit */; };
+		7A5CD6DB2752797500BEE952 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5CD6DA2752797500BEE952 /* SVGKitSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +97,6 @@
 		7A5CD68827511F5700BEE952 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		7A5CD68A275120D300BEE952 /* CountryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetails.swift; sourceTree = "<group>"; };
 		7A5CD69A2751289900BEE952 /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
-		7A5CD69E27512AC400BEE952 /* FirstBarItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBarItemViewController.swift; sourceTree = "<group>"; };
-		7A5CD6A027512ACF00BEE952 /* SecondBarItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBarItemViewController.swift; sourceTree = "<group>"; };
 		7A5CD6A227512B0A00BEE952 /* CountryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewController.swift; sourceTree = "<group>"; };
 		7A5CD6A427512B3200BEE952 /* CountryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewModel.swift; sourceTree = "<group>"; };
 		7A5CD6A627512BC200BEE952 /* CountryDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CountryDetail.storyboard; sourceTree = "<group>"; };
@@ -103,6 +109,14 @@
 		7A5CD6BB27517E0500BEE952 /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
 		7A5CD6BD2751858100BEE952 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		7A5CD6BF275186D100BEE952 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		7A5CD6C127523A3D00BEE952 /* MainScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBuilder.swift; sourceTree = "<group>"; };
+		7A5CD6C427523A6900BEE952 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7A5CD6C627523A7600BEE952 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		7A5CD6CD2752554F00BEE952 /* SavedCountriesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCountriesBuilder.swift; sourceTree = "<group>"; };
+		7A5CD6CF2752558000BEE952 /* SavedCountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCountriesViewModel.swift; sourceTree = "<group>"; };
+		7A5CD6D12752558800BEE952 /* SavedCountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCountriesViewController.swift; sourceTree = "<group>"; };
+		7A5CD6D3275255F800BEE952 /* SavedCountries.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SavedCountries.storyboard; sourceTree = "<group>"; };
+		7A5CD6D52752566F00BEE952 /* SavedCountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCountriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +124,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A5CD6D92752797500BEE952 /* SVGKit in Frameworks */,
 				7A5CD6902751266B00BEE952 /* RxCocoa in Frameworks */,
 				7A5CD6642750FD9200BEE952 /* Kingfisher in Frameworks */,
 				7A5CD6942751266B00BEE952 /* RxSwift in Frameworks */,
+				7A5CD6DB2752797500BEE952 /* SVGKitSwift in Frameworks */,
 				7A5CD6922751266B00BEE952 /* RxRelay in Frameworks */,
 				7A5CD68E2751266B00BEE952 /* RxBlocking in Frameworks */,
 			);
@@ -202,8 +218,10 @@
 		7A5CD66A2750FE4600BEE952 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7A5CD6C327523A5600BEE952 /* TabBar */,
 				7A5CD66D2751015E00BEE952 /* MainScreen */,
 				7A5CD6792751078A00BEE952 /* CountryDetailScreen */,
+				7A5CD6C9275254EE00BEE952 /* SavedCountriesScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -211,8 +229,8 @@
 		7A5CD66D2751015E00BEE952 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7A5CD6C127523A3D00BEE952 /* MainScreenBuilder.swift */,
 				7A5CD6702751041D00BEE952 /* CountryListBuilder.swift */,
-				7A5CD69C27512A8B00BEE952 /* TabItems */,
 				7A5CD6742751070A00BEE952 /* Api */,
 				7A5CD6752751071000BEE952 /* Cells */,
 				7A5CD6762751071C00BEE952 /* Views */,
@@ -354,13 +372,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7A5CD69C27512A8B00BEE952 /* TabItems */ = {
+		7A5CD6C327523A5600BEE952 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				7A5CD69E27512AC400BEE952 /* FirstBarItemViewController.swift */,
-				7A5CD6A027512ACF00BEE952 /* SecondBarItemViewController.swift */,
+				7A5CD6C427523A6900BEE952 /* TabBarViewController.swift */,
+				7A5CD6C627523A7600BEE952 /* TabBarViewModel.swift */,
 			);
-			path = TabItems;
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		7A5CD6C9275254EE00BEE952 /* SavedCountriesScene */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CD6CD2752554F00BEE952 /* SavedCountriesBuilder.swift */,
+				7A5CD6CC2752551700BEE952 /* ViewModels */,
+				7A5CD6CB2752550E00BEE952 /* ViewControllers */,
+				7A5CD6CA2752550500BEE952 /* Views */,
+			);
+			path = SavedCountriesScene;
+			sourceTree = "<group>";
+		};
+		7A5CD6CA2752550500BEE952 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CD6D3275255F800BEE952 /* SavedCountries.storyboard */,
+				7A5CD6D52752566F00BEE952 /* SavedCountriesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A5CD6CB2752550E00BEE952 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CD6D12752558800BEE952 /* SavedCountriesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7A5CD6CC2752551700BEE952 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CD6CF2752558000BEE952 /* SavedCountriesViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +439,8 @@
 				7A5CD68F2751266B00BEE952 /* RxCocoa */,
 				7A5CD6912751266B00BEE952 /* RxRelay */,
 				7A5CD6932751266B00BEE952 /* RxSwift */,
+				7A5CD6D82752797500BEE952 /* SVGKit */,
+				7A5CD6DA2752797500BEE952 /* SVGKitSwift */,
 			);
 			productName = Countries;
 			productReference = 7A5CD6232750FCF800BEE952 /* Countries.app */;
@@ -461,6 +517,7 @@
 			packageReferences = (
 				7A5CD6622750FD9200BEE952 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7A5CD68C2751266B00BEE952 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7A5CD6D72752797500BEE952 /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
 			productRefGroup = 7A5CD6242750FCF800BEE952 /* Products */;
 			projectDirPath = "";
@@ -478,6 +535,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A5CD6D4275255F800BEE952 /* SavedCountries.storyboard in Resources */,
 				7A5CD6362750FCFB00BEE952 /* LaunchScreen.storyboard in Resources */,
 				7A5CD66F275103CF00BEE952 /* Home.storyboard in Resources */,
 				7A5CD6A727512BC200BEE952 /* CountryDetail.storyboard in Resources */,
@@ -510,9 +568,10 @@
 				7A5CD6A527512B3200BEE952 /* CountryDetailViewModel.swift in Sources */,
 				7A5CD6B227513AD400BEE952 /* CountryDetailApi.swift in Sources */,
 				7A5CD6C0275186D100BEE952 /* Optional+Extensions.swift in Sources */,
+				7A5CD6C527523A6900BEE952 /* TabBarViewController.swift in Sources */,
 				7A5CD6872751139C00BEE952 /* URL+Extensions.swift in Sources */,
-				7A5CD6A127512ACF00BEE952 /* SecondBarItemViewController.swift in Sources */,
 				7A5CD62B2750FCF800BEE952 /* CountryListViewController.swift in Sources */,
+				7A5CD6CE2752554F00BEE952 /* SavedCountriesBuilder.swift in Sources */,
 				7A5CD67B275107ED00BEE952 /* CountryDetailBuilder.swift in Sources */,
 				7A5CD6732751045400BEE952 /* CountryListViewModel.swift in Sources */,
 				7A5CD68927511F5700BEE952 /* Country.swift in Sources */,
@@ -522,16 +581,20 @@
 				7A5CD6B82751527100BEE952 /* UIView+Extensions.swift in Sources */,
 				7A5CD6BC27517E0500BEE952 /* CountryDetailView.swift in Sources */,
 				7A5CD6B0275136A700BEE952 /* MainScreenApi.swift in Sources */,
+				7A5CD6C227523A3D00BEE952 /* MainScreenBuilder.swift in Sources */,
+				7A5CD6C727523A7600BEE952 /* TabBarViewModel.swift in Sources */,
 				7A5CD6B4275146E500BEE952 /* MainScreenView.swift in Sources */,
 				7A5CD6712751041D00BEE952 /* CountryListBuilder.swift in Sources */,
 				7A5CD6272750FCF800BEE952 /* AppDelegate.swift in Sources */,
-				7A5CD69F27512AC400BEE952 /* FirstBarItemViewController.swift in Sources */,
+				7A5CD6D22752558800BEE952 /* SavedCountriesViewController.swift in Sources */,
 				7A5CD6692750FDE900BEE952 /* AppRouter.swift in Sources */,
 				7A5CD6672750FDDD00BEE952 /* AppContainer.swift in Sources */,
 				7A5CD6B6275146F100BEE952 /* CountryListTableViewCell.swift in Sources */,
 				7A5CD6312750FCF800BEE952 /* Countries.xcdatamodeld in Sources */,
 				7A5CD68B275120D300BEE952 /* CountryDetails.swift in Sources */,
 				7A5CD6292750FCF800BEE952 /* SceneDelegate.swift in Sources */,
+				7A5CD6D02752558000BEE952 /* SavedCountriesViewModel.swift in Sources */,
+				7A5CD6D62752566F00BEE952 /* SavedCountriesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,6 +972,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		7A5CD6D72752797500BEE952 /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
+			requirement = {
+				branch = 3.x;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -936,6 +1007,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7A5CD68C2751266B00BEE952 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		7A5CD6D82752797500BEE952 /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A5CD6D72752797500BEE952 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		7A5CD6DA2752797500BEE952 /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A5CD6D72752797500BEE952 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

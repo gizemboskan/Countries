@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "CocoaLumberjack",
+        "repositoryURL": "https://github.com/CocoaLumberjack/CocoaLumberjack.git",
+        "state": {
+          "branch": null,
+          "revision": "e518eb6e362df327574ba5e04269cd6d29f40aec",
+          "version": "3.7.2"
+        }
+      },
+      {
         "package": "Kingfisher",
         "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
         "state": {
@@ -17,6 +26,24 @@
           "branch": null,
           "revision": "7c17a6ccca06b5c107cfa4284e634562ddaf5951",
           "version": "6.2.0"
+        }
+      },
+      {
+        "package": "SVGKit",
+        "repositoryURL": "https://github.com/SVGKit/SVGKit.git",
+        "state": {
+          "branch": "3.x",
+          "revision": "e9bc636845fb4d6d5d8e25a9bd08e75c5cf92de9",
+          "version": null
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
+        "state": {
+          "branch": null,
+          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+          "version": "1.4.2"
         }
       }
     ]
