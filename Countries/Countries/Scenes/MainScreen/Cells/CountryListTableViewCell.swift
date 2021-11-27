@@ -16,6 +16,7 @@ final class CountryListTableViewCell: UITableViewCell {
             favButton.imageView?.alpha = 0.3
         }
     }
+    @IBOutlet weak var countryListCellView: UIView!
     
     // MARK: - Initilizations
     override func awakeFromNib() {
@@ -27,7 +28,7 @@ final class CountryListTableViewCell: UITableViewCell {
 // MARK: - Helpers
 private extension CountryListTableViewCell {
     func arrangeViews() {
-        roundCorners(with: 8, borderColor: .darkGray, borderWidth: 2.0)
+        countryListCellView.roundCorners(with: 12, borderColor: .darkGray, borderWidth: 2.0)
     }
 }
 

@@ -14,12 +14,13 @@ protocol CountryListViewModelProtocol {
     var isLoading: BehaviorRelay<Bool> { get set }
     var onError: BehaviorRelay<Bool> { get set }
     var navigateToDetailReady: BehaviorRelay<CountryDetailViewModel?> { get set }
+    var mainScreenApi: MainScreenApi? { get set }
     
     func getCountryList()
     func navigateToDetail(code: String)
 }
 
-final class CountryListViewModel: CountryListViewModelProtocol, MainScreenApi {
+final class CountryListViewModel: CountryListViewModelProtocol {
     
     // MARK: - Properties
     private var limit: Int = 10
@@ -29,6 +30,7 @@ final class CountryListViewModel: CountryListViewModelProtocol, MainScreenApi {
     var isLoading = BehaviorRelay<Bool>(value: false)
     var onError = BehaviorRelay<Bool>(value: false)
     var navigateToDetailReady = BehaviorRelay<CountryDetailViewModel?>(value: nil)
+    var mainScreenApi: MainScreenApi?
     
     // MARK: - Initilizations
     init() { }
@@ -41,7 +43,7 @@ final class CountryListViewModel: CountryListViewModelProtocol, MainScreenApi {
                 self.isLoading.accept(true)
             })
             .flatMap { [weak self] limit in
-                self?.getCountryList(limit: limit) ?? .empty()
+                self?.mainScreenApi?.getCountryList(limit: limit) ?? .empty()
             }
             .observe(on: MainScheduler.instance)
             .do(onError: { _ in self.onError.accept(true) })

@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SVGKit
 
 final class CountryDetailViewController: UIViewController {
     
@@ -24,8 +25,8 @@ final class CountryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         observeDataSource()
+        self.tabBarController?.tabBar.isHidden = true
     }
-    
 }
 
 // MARK: - Observe Data Source
@@ -70,8 +71,7 @@ extension CountryDetailViewController {
             }).disposed(by: bag)
         
         countryDetailButton.rx.tap
-            .subscribe(onNext: { [weak self] data in
-                guard let self = self else { return }
+            .subscribe(onNext: { data in
                 let countryDetail = viewModel.countryDetailDatasource.value?.data
                 if let countryDetailURL = URL(string: "https://www.wikidata.org/wiki/\(countryDetail?.wikiDataID ?? "")"),
                    UIApplication.shared.canOpenURL(countryDetailURL) {
@@ -79,6 +79,9 @@ extension CountryDetailViewController {
                 }
             })
             .disposed(by: bag)
+        
+    }
+    @objc func favoriteButtonPressed(){
         
     }
     func observeUI(with countryDetails: CountryDetails?) {
@@ -90,8 +93,10 @@ extension CountryDetailViewController {
         self.populateUI(countryImageViewURL: countryImage.orEmpty, countryCode: countryCode.orEmpty)
     }
     private func populateUI(countryImageViewURL: String?, countryCode: String) {
-        if let countryImageViewURL = countryImageViewURL {
-            countryImageView.setImage(with: countryImageViewURL)
+        
+        if let countryImageURL = countryImageViewURL,
+           let url = URL(string: countryImageURL) {
+            countryImageView.image = SVGKImage(contentsOf: url).uiImage
         }
         countryCodeLabel.text = countryCode
     }

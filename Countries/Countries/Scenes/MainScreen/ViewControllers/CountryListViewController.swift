@@ -23,12 +23,17 @@ final class CountryListViewController: UIViewController {
         observeDataSource()
         viewModel?.getCountryList()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
 }
 
 //  MARK: - Arrange Views
 extension CountryListViewController {
     func arrangeViews() {
         title = "Countries"
+        self.tabBarController?.tabBar.isHidden = false
         countryListTableView.delegate = self
         countryListTableView.dataSource = self
     }
