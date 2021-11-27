@@ -47,10 +47,6 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="countryDetailButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vm5-gW-hWq"/>
-                                    <action selector="countryDetailButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kvN-78-GDU"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCk-KY-fwL">
                                 <rect key="frame" x="131" y="484" width="35.5" height="17"/>

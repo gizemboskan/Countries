@@ -9,9 +9,12 @@ import UIKit
 
 final class CountryListBuilder {
     
-    static func make(with viewModel: CountryListViewModel) -> CountryListViewController {
+    static func make() -> CountryListViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "CountryListViewController") as! CountryListViewController
+        var viewModel: CountryListViewModelProtocol = CountryListViewModel()
+        let api: MainScreenApi = MainScreenApiImplementation()
+        viewModel.mainScreenApi = api
         viewController.viewModel = viewModel
         return viewController
     }
