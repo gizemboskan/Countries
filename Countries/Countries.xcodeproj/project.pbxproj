@@ -53,6 +53,7 @@
 		7A5CD6D62752566F00BEE952 /* SavedCountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6D52752566F00BEE952 /* SavedCountriesView.swift */; };
 		7A5CD6D92752797500BEE952 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5CD6D82752797500BEE952 /* SVGKit */; };
 		7A5CD6DB2752797500BEE952 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5CD6DA2752797500BEE952 /* SVGKitSwift */; };
+		7A5CD6E02752988E00BEE952 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6DF2752988E00BEE952 /* CountryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		7A5CD6D12752558800BEE952 /* SavedCountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCountriesViewController.swift; sourceTree = "<group>"; };
 		7A5CD6D3275255F800BEE952 /* SavedCountries.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SavedCountries.storyboard; sourceTree = "<group>"; };
 		7A5CD6D52752566F00BEE952 /* SavedCountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCountriesView.swift; sourceTree = "<group>"; };
+		7A5CD6DF2752988E00BEE952 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				7A5CD6342750FCFB00BEE952 /* LaunchScreen.storyboard */,
 				7A5CD6372750FCFB00BEE952 /* Info.plist */,
 				7A5CD62F2750FCF800BEE952 /* Countries.xcdatamodeld */,
+				7A5CD6DF2752988E00BEE952 /* CountryModel.swift */,
 			);
 			path = Countries;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				7A5CD6BC27517E0500BEE952 /* CountryDetailView.swift in Sources */,
 				7A5CD6B0275136A700BEE952 /* MainScreenApi.swift in Sources */,
 				7A5CD6C227523A3D00BEE952 /* MainScreenBuilder.swift in Sources */,
+				7A5CD6E02752988E00BEE952 /* CountryModel.swift in Sources */,
 				7A5CD6C727523A7600BEE952 /* TabBarViewModel.swift in Sources */,
 				7A5CD6B4275146E500BEE952 /* MainScreenView.swift in Sources */,
 				7A5CD6712751041D00BEE952 /* CountryListBuilder.swift in Sources */,

@@ -20,6 +20,7 @@ final class CountryDetailViewController: UIViewController {
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryCodeLabel: UILabel!
     @IBOutlet weak var countryDetailButton: UIButton!
+    @IBOutlet weak var favButton: UIBarButtonItem!
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
@@ -81,9 +82,7 @@ extension CountryDetailViewController {
             .disposed(by: bag)
         
     }
-    @objc func favoriteButtonPressed(){
-        
-    }
+
     func observeUI(with countryDetails: CountryDetails?) {
         guard let viewModel = viewModel else { return }
         let countryDetail = viewModel.countryDetailDatasource.value?.data
