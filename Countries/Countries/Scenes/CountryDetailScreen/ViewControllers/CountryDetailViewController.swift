@@ -20,19 +20,29 @@ final class CountryDetailViewController: UIViewController {
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryCodeLabel: UILabel!
     @IBOutlet weak var countryDetailButton: UIButton!
-    @IBOutlet weak var favButton: UIBarButtonItem!
+    var favButton: UIBarButtonItem?
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         observeDataSource()
+        favButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(favButtonPressed))
+        navigationItem.rightBarButtonItem = favButton
         self.tabBarController?.tabBar.isHidden = true
+        guard let viewModel = viewModel else { return }
+        favButton?.tintColor = viewModel.isFav ? .darkGray : .darkGray.withAlphaComponent(0.3)
+    }
+    
+    @objc func favButtonPressed() {
+        guard let viewModel = viewModel else { return }
+        favButton?.tintColor = !viewModel.isFav ? .darkGray : .darkGray.withAlphaComponent(0.3)
+        viewModel.changeFavoriteCountry()
     }
 }
 
 // MARK: - Observe Data Source
 extension CountryDetailViewController {
-    func observeDataSource(){
+    private func observeDataSource(){
         guard let viewModel = viewModel else { return }
         
         viewModel.countryCodeDatasource
@@ -71,48 +81,6 @@ extension CountryDetailViewController {
                 }
             }).disposed(by: bag)
         
-        // TODO: IMPLEMENT PROPER DATASTRUCTURE!
-//        favButton.rx.tap
-//            .subscribe(onNext: { data in
-//                if datum.isFav {
-//                    cell.favButton.imageView?.alpha = 0.3
-//                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//                    let context = appDelegate.persistentContainer.viewContext
-//                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"SavedCountries")
-//
-//                    fetchRequest.predicate = NSPredicate(format: "savedCountryCode = %@", "\(datum.code)")
-//                    do
-//                    {
-//                        let fetchedResults =  try context.fetch(fetchRequest) as? [NSManagedObject]
-//
-//                        for entity in fetchedResults! {
-//
-//                            context.delete(entity)
-//                        }
-//                        try context.save()
-//                    }
-//                    catch _ {
-//                        print("Could not be deleted!")
-//                    }
-//                } else {
-//                    favButton.imageView?.alpha = 1.0
-//                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//
-//                    let context = appDelegate.persistentContainer.viewContext
-//                    let newCountry = NSEntityDescription.insertNewObject(forEntityName: "SavedCountries", into: context)
-//
-//                    newCountry.setValue(datum.code, forKey: "savedCountryCode")
-//
-//                    do {
-//                        try context.save()
-//                    } catch  {
-//                        print("Could not be saved!")
-//                    }
-//                }
-//                datum.isFav.toggle()
-//            })
-            //.disposed(by: bag)
-        
         countryDetailButton.rx.tap
             .subscribe(onNext: { data in
                 let countryDetail = viewModel.countryDetailDatasource.value?.data
@@ -122,10 +90,9 @@ extension CountryDetailViewController {
                 }
             })
             .disposed(by: bag)
-        
     }
-
-    func observeUI(with countryDetails: CountryDetails?) {
+    
+    private func observeUI(with countryDetails: CountryDetails?) {
         guard let viewModel = viewModel else { return }
         let countryDetail = viewModel.countryDetailDatasource.value?.data
         let countryCode = countryDetail?.code
@@ -141,5 +108,4 @@ extension CountryDetailViewController {
         }
         countryCodeLabel.text = countryCode
     }
-    
 }

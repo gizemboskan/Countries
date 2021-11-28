@@ -56,9 +56,9 @@ extension CountryListViewController {
         
         viewModel.navigateToDetailReady
             .compactMap{ $0 }
-            .subscribe(onNext: { [weak self] countryDetailViewModel in
+            .subscribe(onNext: { [weak self] navigationItem in
                 guard let self = self else { return }
-                let countryDetailViewController = CountryDetailBuilder.make(with: countryDetailViewModel)
+                let countryDetailViewController = CountryDetailBuilder.make(repository: navigationItem.repository, code: navigationItem.code, isFav: navigationItem.isFav)
                 self.navigationController?.pushViewController(countryDetailViewController, animated: true)
             }).disposed(by: bag)
         
@@ -86,7 +86,7 @@ extension CountryListViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension CountryListViewController: UITableViewDataSource {
+extension CountryListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return .zero }
@@ -114,13 +114,7 @@ extension CountryListViewController: UITableViewDataSource {
         guard let viewModel = viewModel else { return }
         let country = viewModel.countryListDatasource.value[indexPath.row]
         let countryCode = country.code
-        viewModel.navigateToDetail(code: countryCode)
+        let isFav = country.isFav
+        viewModel.navigateToDetail(code: countryCode, isFav: isFav)
     }
-}
-
-// MARK: - UITableViewDelegate
-extension CountryListViewController: UITableViewDelegate {
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        UITableView.automaticDimension
-    //    }
 }

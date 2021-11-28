@@ -13,7 +13,6 @@ final class CountryListBuilder {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "CountryListViewController") as! CountryListViewController
         var viewModel: CountryListViewModelProtocol = CountryListViewModel()
-        let api: MainScreenApiProtocol = MainScreenApiImplementation()
         viewModel.mainScreenApi = repository
         viewController.viewModel = viewModel
         return viewController

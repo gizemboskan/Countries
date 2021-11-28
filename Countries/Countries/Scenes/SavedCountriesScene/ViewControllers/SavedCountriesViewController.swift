@@ -56,9 +56,9 @@ extension SavedCountriesViewController {
         
         viewModel.navigateToDetailReady
             .compactMap{ $0 }
-            .subscribe(onNext: { [weak self] countryDetailViewModel in
+            .subscribe(onNext: { [weak self] navigationItem in
                 guard let self = self else { return }
-                let countryDetailViewController = CountryDetailBuilder.make(with: countryDetailViewModel)
+                let countryDetailViewController = CountryDetailBuilder.make(repository: navigationItem.repository, code: navigationItem.code, isFav: navigationItem.isFav)
                 self.navigationController?.pushViewController(countryDetailViewController, animated: true)
             }).disposed(by: bag)
         
@@ -86,41 +86,31 @@ extension SavedCountriesViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension SavedCountriesViewController: UITableViewDataSource {
+extension SavedCountriesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return .zero }
-
-        return viewModel.savedCountryListDatasource.value.filter{($0.isFav == true)}.count
+        
+        return viewModel.savedCountryListDatasource.value.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let viewModel = viewModel else { return UITableViewCell() }
         let cell = savedCountriesTableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell",
                                                                for: indexPath) as! CountryTableViewCell
         let country = viewModel.savedCountryListDatasource.value[indexPath.row]
-        if country.isFav {
-            cell.favButton.imageView?.alpha = 1.0
-        } else {
-            cell.favButton.imageView?.alpha = 0.3
-        }
+        cell.favButton.imageView?.alpha = 1.0
         let countryName = country.name
         cell.viewModel = viewModel.getCellViewModels(indexpath: indexPath)
         cell.populateUI(countryName: countryName)
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
-        let country = viewModel.savedCountryListDatasource.value.filter{($0.isFav == true)}[indexPath.row]
+        let country = viewModel.savedCountryListDatasource.value[indexPath.row]
         let countryCode = country.code
-        viewModel.navigateToDetail(code: countryCode)
+        let isFav = country.isFav
+        viewModel.navigateToDetail(code: countryCode, isFav: isFav)
     }
-}
-
-// MARK: - UITableViewDelegate
-extension SavedCountriesViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        UITableView.automaticDimension
-//    }
 }
