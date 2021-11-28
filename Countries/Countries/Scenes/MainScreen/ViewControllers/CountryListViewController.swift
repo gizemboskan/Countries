@@ -22,13 +22,13 @@ final class CountryListViewController: UIViewController {
         super.viewDidLoad()
         arrangeViews()
         observeDataSource()
-        viewModel?.getCountryList()
+        guard let viewModel = viewModel else { return }
+        viewModel.getCountryList()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let viewModel = viewModel else { return }
         self.tabBarController?.tabBar.isHidden = false
-        viewModel.getFavorites()
     }
 }
 
@@ -37,6 +37,8 @@ extension CountryListViewController {
     func arrangeViews() {
         title = "Countries"
         self.tabBarController?.tabBar.isHidden = false
+        let nibCell = UINib(nibName: "CountryTableViewCell", bundle: nil)
+        countryListTableView.register(nibCell, forCellReuseIdentifier: "CountryTableViewCell")
         countryListTableView.delegate = self
         countryListTableView.dataSource = self
     }
@@ -47,11 +49,10 @@ extension CountryListViewController {
     func observeDataSource(){
         guard let viewModel = viewModel else { return }
         
-        viewModel.savedCountryListDatasource.subscribe(onNext: { [weak self] data in
+        viewModel.countryListDatasource.subscribe(onNext: { [weak self] data in
             guard let self = self else { return }
             self.countryListTableView.reloadData()
         }).disposed(by: bag)
-        
         
         viewModel.navigateToDetailReady
             .compactMap{ $0 }
@@ -90,77 +91,36 @@ extension CountryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return .zero }
         
-        return viewModel.savedCountryListDatasource.value.count
+        return viewModel.countryListDatasource.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let viewModel = viewModel else { return UITableViewCell() }
-        let cell = countryListTableView.dequeueReusableCell(withIdentifier: "CountryListTableViewCell", for: indexPath) as! CountryListTableViewCell
-        var datum = viewModel.savedCountryListDatasource.value[indexPath.row]
-        if datum.isFav {
+        let cell = countryListTableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell",
+                                                            for: indexPath) as! CountryTableViewCell
+        let country = viewModel.countryListDatasource.value[indexPath.row]
+        if country.isFav {
             cell.favButton.imageView?.alpha = 1.0
         } else {
             cell.favButton.imageView?.alpha = 0.3
         }
-        cell.favButton.rx.tap
-            .subscribe(onNext: { data in
-                if datum.isFav {
-                    cell.favButton.imageView?.alpha = 0.3
-                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-                    let context = appDelegate.persistentContainer.viewContext
-                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"SavedCountries")
-                    
-                    fetchRequest.predicate = NSPredicate(format: "savedCountryCode = %@", "\(datum.code)")
-                    do
-                    {
-                        let fetchedResults =  try context.fetch(fetchRequest) as? [NSManagedObject]
-                        
-                        for entity in fetchedResults! {
-                            
-                            context.delete(entity)
-                        }
-                        try context.save()
-                    }
-                    catch _ {
-                        print("Could not be deleted!")
-                    }
-                } else {
-                    cell.favButton.imageView?.alpha = 1.0
-                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-                    
-                    let context = appDelegate.persistentContainer.viewContext
-                    let newCountry = NSEntityDescription.insertNewObject(forEntityName: "SavedCountries", into: context)
-                    
-                    newCountry.setValue(datum.code, forKey: "savedCountryCode")
-                    
-                    do {
-                        try context.save()
-                    } catch  {
-                        print("Could not be saved!")
-                    }
-                }
-                datum.isFav.toggle()
-            })
-            .disposed(by: bag)
-        
-        let countryName = datum.name
+        let countryName = country.name
+        cell.viewModel = viewModel.getCellViewModels(indexpath: indexPath)
         cell.populateUI(countryName: countryName)
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
-        
-        let datum = viewModel.savedCountryListDatasource.value[indexPath.row]
-        let countryCode = datum.code
+        let country = viewModel.countryListDatasource.value[indexPath.row]
+        let countryCode = country.code
         viewModel.navigateToDetail(code: countryCode)
     }
 }
 
 // MARK: - UITableViewDelegate
 extension CountryListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
-    }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        UITableView.automaticDimension
+    //    }
 }

@@ -14,7 +14,7 @@ final class CountryDetailBuilder {
         let storyboard = UIStoryboard(name: "CountryDetail", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "CountryDetailViewController") as! CountryDetailViewController
       //  var viewModel: CountryDetailViewModelProtocol = CountryDetailViewModel()
-        let api: CountryDetailApi = CountryDetailApiImplementation()
+        let api: CountryDetailApiProtocol = CountryDetailApiImplementation()
         viewModel.countryDetailApi = api
         viewController.viewModel = viewModel
         return viewController

@@ -8,41 +8,87 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import UIKit
+import CoreData
 
 protocol SavedCountriesViewModelProtocol {
-    var savedCountriesDatasource: BehaviorRelay<[Datum]> { get set }
-    var savedCountryCodesDatasource: BehaviorRelay<[String]> { get set }
+    
+    var savedCountryListDatasource: BehaviorRelay<[CountryModel]> { get set }
     var isLoading: BehaviorRelay<Bool> { get set }
     var onError: BehaviorRelay<Bool> { get set }
     var navigateToDetailReady: BehaviorRelay<CountryDetailViewModel?> { get set }
-    var mainScreenApi: MainScreenApi? { get set }
-
+    var mainScreenApi: MainScreenApiProtocol? { get set }
+    
+    func getSavedCountryList()
     func navigateToDetail(code: String)
+    func changeFavoriteCountry(code: String, isFav: Bool)
+    func getCellViewModels(indexpath: IndexPath) -> CountryTableViewCellViewModel
 }
 
 final class SavedCountriesViewModel: SavedCountriesViewModelProtocol {
     // MARK: - Properties
     private var bag = DisposeBag()
-    
-    var savedCountriesDatasource = BehaviorRelay<[Datum]>(value: [])
-    var savedCountryCodesDatasource = BehaviorRelay<[String]>(value: [])
+    var savedCountryListDatasource = BehaviorRelay<[CountryModel]>(value: [])
     var isLoading = BehaviorRelay<Bool>(value: false)
     var onError = BehaviorRelay<Bool>(value: false)
     var navigateToDetailReady = BehaviorRelay<CountryDetailViewModel?>(value: nil)
-    var mainScreenApi: MainScreenApi?
+    var mainScreenApi: MainScreenApiProtocol?
     
     // MARK: - Initilizations
     init() { }
     
     //MARK: - Public Methods
+    func getSavedCountryList() {
+        guard let mainScreenApi = mainScreenApi else { return }
+                        
+        mainScreenApi.countryListDatasource
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] countryListResponse in
+                guard let self = self else { return }
+                self.updateSavedCountryListDatasource(with: countryListResponse)
+            })
+            .disposed(by: bag)
+        
+        mainScreenApi.isLoading
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] isLoading in
+                guard let self = self else { return }
+                self.isLoading.accept(isLoading)
+            })
+            .disposed(by: bag)
+        
+        mainScreenApi.onError
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] onError in
+                guard let self = self else { return }
+                self.onError.accept(onError)
+            })
+            .disposed(by: bag)
+    }
+    
     func navigateToDetail(code: String) {
         let detailViewModel = CountryDetailViewModel()
         detailViewModel.countryCodeDatasource.accept(code)
         navigateToDetailReady.accept(detailViewModel)
     }
+    
+    func changeFavoriteCountry(code: String, isFav: Bool) {
+        guard let mainScreenApi = mainScreenApi else { return }
+        mainScreenApi.changeFavoriteCountry(code: code, isFav: isFav)
+    }
+    
+    func getCellViewModels(indexpath: IndexPath) -> CountryTableViewCellViewModel {
+        let cellVM = CountryTableViewCellViewModel(code: savedCountryListDatasource.value[indexpath.row].code,
+                                                       isFav: savedCountryListDatasource.value[indexpath.row].isFav)
+        cellVM.mainScreenApi = self.mainScreenApi
+        return cellVM
+    }
 }
+
 
 //MARK: - Helper Methods
 extension SavedCountriesViewModel {
-    
+    private func updateSavedCountryListDatasource(with country: [CountryModel]) {
+        self.savedCountryListDatasource.accept(country)
+    }
 }

@@ -71,6 +71,48 @@ extension CountryDetailViewController {
                 }
             }).disposed(by: bag)
         
+        // TODO: IMPLEMENT PROPER DATASTRUCTURE!
+//        favButton.rx.tap
+//            .subscribe(onNext: { data in
+//                if datum.isFav {
+//                    cell.favButton.imageView?.alpha = 0.3
+//                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//                    let context = appDelegate.persistentContainer.viewContext
+//                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"SavedCountries")
+//
+//                    fetchRequest.predicate = NSPredicate(format: "savedCountryCode = %@", "\(datum.code)")
+//                    do
+//                    {
+//                        let fetchedResults =  try context.fetch(fetchRequest) as? [NSManagedObject]
+//
+//                        for entity in fetchedResults! {
+//
+//                            context.delete(entity)
+//                        }
+//                        try context.save()
+//                    }
+//                    catch _ {
+//                        print("Could not be deleted!")
+//                    }
+//                } else {
+//                    favButton.imageView?.alpha = 1.0
+//                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//
+//                    let context = appDelegate.persistentContainer.viewContext
+//                    let newCountry = NSEntityDescription.insertNewObject(forEntityName: "SavedCountries", into: context)
+//
+//                    newCountry.setValue(datum.code, forKey: "savedCountryCode")
+//
+//                    do {
+//                        try context.save()
+//                    } catch  {
+//                        print("Could not be saved!")
+//                    }
+//                }
+//                datum.isFav.toggle()
+//            })
+            //.disposed(by: bag)
+        
         countryDetailButton.rx.tap
             .subscribe(onNext: { data in
                 let countryDetail = viewModel.countryDetailDatasource.value?.data

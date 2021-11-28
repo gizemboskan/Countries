@@ -14,7 +14,7 @@ protocol CountryDetailViewModelProtocol {
     var countryDetailDatasource: BehaviorRelay<CountryDetails?> { get set }
     var isLoading: BehaviorRelay<Bool> { get set }
     var onError: BehaviorRelay<Bool> { get set }
-    var countryDetailApi: CountryDetailApi? { get set }
+    var countryDetailApi: CountryDetailApiProtocol? { get set }
     
     func getcountryDetails(countryCode: String)
 }
@@ -27,7 +27,7 @@ final class CountryDetailViewModel: CountryDetailViewModelProtocol {
     var onError = BehaviorRelay<Bool>(value: false)
     var countryCodeDatasource = BehaviorRelay<String?>(value: nil)
     var countryDetailDatasource = BehaviorRelay<CountryDetails?>(value: nil)
-    var countryDetailApi: CountryDetailApi?
+    var countryDetailApi: CountryDetailApiProtocol?
     
     func getcountryDetails(countryCode: String) {
         Observable.just((countryCode))

@@ -10,12 +10,13 @@ import UIKit
 final class AppRouter {
     
     func start(window: UIWindow) {
-        let firstViewController = CountryListBuilder.make()
+        let repository: MainScreenApiProtocol = MainScreenApiImplementation()
+        let firstViewController = CountryListBuilder.make(repository: repository)
         let firstNavigationController = UINavigationController(rootViewController: firstViewController)
         let firstTabBarItem = UITabBarItem(title: "Home",  image: UIImage(systemName: "house.fill")?.withTintColor(.black), selectedImage: UIImage(systemName: "house.fill")?.withTintColor(.white))
         firstNavigationController.tabBarItem = firstTabBarItem
         
-        let secondViewController = SavedCountriesBuilder.make()
+        let secondViewController = SavedCountriesBuilder.make(repository: repository)
         let secondNavigationController = UINavigationController(rootViewController: secondViewController)
         let secondTabBarItem = UITabBarItem(title: "Saved", image: UIImage(systemName: "heart.fill")?.withTintColor(.black), selectedImage: UIImage(systemName: "heart.fill")?.withTintColor(.white))
         secondNavigationController.tabBarItem = secondTabBarItem

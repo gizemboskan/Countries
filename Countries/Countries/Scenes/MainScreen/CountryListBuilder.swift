@@ -9,12 +9,12 @@ import UIKit
 
 final class CountryListBuilder {
     
-    static func make() -> CountryListViewController {
+    static func make(repository: MainScreenApiProtocol) -> CountryListViewController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "CountryListViewController") as! CountryListViewController
         var viewModel: CountryListViewModelProtocol = CountryListViewModel()
-        let api: MainScreenApi = MainScreenApiImplementation()
-        viewModel.mainScreenApi = api
+        let api: MainScreenApiProtocol = MainScreenApiImplementation()
+        viewModel.mainScreenApi = repository
         viewController.viewModel = viewModel
         return viewController
     }
