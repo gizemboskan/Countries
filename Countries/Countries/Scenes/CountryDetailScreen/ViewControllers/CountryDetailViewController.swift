@@ -26,16 +26,17 @@ final class CountryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         observeDataSource()
-        favButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(favButtonPressed))
+        favButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self,
+                                    action: #selector(favButtonPressed))
         navigationItem.rightBarButtonItem = favButton
         self.tabBarController?.tabBar.isHidden = true
         guard let viewModel = viewModel else { return }
-        favButton?.tintColor = viewModel.isFav ? .darkGray : .darkGray.withAlphaComponent(0.3)
+        favButton?.tintColor = viewModel.isFav ? .black : .darkGray.withAlphaComponent(0.3)
     }
     
     @objc func favButtonPressed() {
         guard let viewModel = viewModel else { return }
-        favButton?.tintColor = !viewModel.isFav ? .darkGray : .darkGray.withAlphaComponent(0.3)
+        favButton?.tintColor = !viewModel.isFav ? .black : .darkGray.withAlphaComponent(0.3)
         viewModel.changeFavoriteCountry()
     }
 }
@@ -100,8 +101,8 @@ extension CountryDetailViewController {
         self.title = countryDetail?.name
         self.populateUI(countryImageViewURL: countryImage.orEmpty, countryCode: countryCode.orEmpty)
     }
+    
     private func populateUI(countryImageViewURL: String?, countryCode: String) {
-        
         if let countryImageURL = countryImageViewURL,
            let url = URL(string: countryImageURL) {
             countryImageView.image = SVGKImage(contentsOf: url).uiImage

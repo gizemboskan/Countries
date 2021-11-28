@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 final class SavedCountriesBuilder {
-    
     static func make(repository: MainScreenApiProtocol) -> SavedCountriesViewController {
         let storyboard = UIStoryboard(name: "SavedCountries", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "SavedCountriesViewController") as! SavedCountriesViewController

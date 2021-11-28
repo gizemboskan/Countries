@@ -16,7 +16,6 @@
 		7A5CD6412750FCFB00BEE952 /* CountriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6402750FCFB00BEE952 /* CountriesTests.swift */; };
 		7A5CD64B2750FCFB00BEE952 /* CountriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD64A2750FCFB00BEE952 /* CountriesUITests.swift */; };
 		7A5CD64D2750FCFB00BEE952 /* CountriesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD64C2750FCFB00BEE952 /* CountriesUITestsLaunchTests.swift */; };
-		7A5CD6642750FD9200BEE952 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5CD6632750FD9200BEE952 /* Kingfisher */; };
 		7A5CD6672750FDDD00BEE952 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6662750FDDD00BEE952 /* AppContainer.swift */; };
 		7A5CD6692750FDE900BEE952 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6682750FDE900BEE952 /* AppRouter.swift */; };
 		7A5CD66F275103CF00BEE952 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CD66E275103CF00BEE952 /* Home.storyboard */; };
@@ -40,7 +39,6 @@
 		7A5CD6B82751527100BEE952 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6B72751527100BEE952 /* UIView+Extensions.swift */; };
 		7A5CD6BA2751555100BEE952 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6B92751555100BEE952 /* UIViewController+Extensions.swift */; };
 		7A5CD6BC27517E0500BEE952 /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6BB27517E0500BEE952 /* CountryDetailView.swift */; };
-		7A5CD6BE2751858100BEE952 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6BD2751858100BEE952 /* UIImageView+Extension.swift */; };
 		7A5CD6C0275186D100BEE952 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6BF275186D100BEE952 /* Optional+Extensions.swift */; };
 		7A5CD6C227523A3D00BEE952 /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6C127523A3D00BEE952 /* MainScreenBuilder.swift */; };
 		7A5CD6C527523A6900BEE952 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CD6C427523A6900BEE952 /* TabBarViewController.swift */; };
@@ -109,7 +107,6 @@
 		7A5CD6B72751527100BEE952 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7A5CD6B92751555100BEE952 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		7A5CD6BB27517E0500BEE952 /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
-		7A5CD6BD2751858100BEE952 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		7A5CD6BF275186D100BEE952 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		7A5CD6C127523A3D00BEE952 /* MainScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBuilder.swift; sourceTree = "<group>"; };
 		7A5CD6C427523A6900BEE952 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +129,6 @@
 			files = (
 				7A5CD6D92752797500BEE952 /* SVGKit in Frameworks */,
 				7A5CD6902751266B00BEE952 /* RxCocoa in Frameworks */,
-				7A5CD6642750FD9200BEE952 /* Kingfisher in Frameworks */,
 				7A5CD6942751266B00BEE952 /* RxSwift in Frameworks */,
 				7A5CD6DB2752797500BEE952 /* SVGKitSwift in Frameworks */,
 				7A5CD6922751266B00BEE952 /* RxRelay in Frameworks */,
@@ -157,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A5A79F127540E4E00E34F2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CD62F2750FCF800BEE952 /* Countries.xcdatamodeld */,
+				7A5CD6DF2752988E00BEE952 /* CountryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7A5CD61A2750FCF800BEE952 = {
 			isa = PBXGroup;
 			children = (
@@ -184,13 +189,12 @@
 				7A5CD6652750FD9F00BEE952 /* App */,
 				7A5CD6282750FCF800BEE952 /* SceneDelegate.swift */,
 				7A5CD66A2750FE4600BEE952 /* Scenes */,
+				7A5A79F127540E4E00E34F2E /* Models */,
 				7A5CD6802751083900BEE952 /* Extensions */,
 				7A5CD6812751084D00BEE952 /* Api */,
 				7A5CD6322750FCFB00BEE952 /* Assets.xcassets */,
 				7A5CD6342750FCFB00BEE952 /* LaunchScreen.storyboard */,
 				7A5CD6372750FCFB00BEE952 /* Info.plist */,
-				7A5CD62F2750FCF800BEE952 /* Countries.xcdatamodeld */,
-				7A5CD6DF2752988E00BEE952 /* CountryModel.swift */,
 			);
 			path = Countries;
 			sourceTree = "<group>";
@@ -340,7 +344,6 @@
 			children = (
 				7A5CD6B72751527100BEE952 /* UIView+Extensions.swift */,
 				7A5CD6B92751555100BEE952 /* UIViewController+Extensions.swift */,
-				7A5CD6BD2751858100BEE952 /* UIImageView+Extension.swift */,
 				7A5CD6BF275186D100BEE952 /* Optional+Extensions.swift */,
 			);
 			path = Extensions;
@@ -443,7 +446,6 @@
 			);
 			name = Countries;
 			packageProductDependencies = (
-				7A5CD6632750FD9200BEE952 /* Kingfisher */,
 				7A5CD68D2751266B00BEE952 /* RxBlocking */,
 				7A5CD68F2751266B00BEE952 /* RxCocoa */,
 				7A5CD6912751266B00BEE952 /* RxRelay */,
@@ -524,7 +526,6 @@
 			);
 			mainGroup = 7A5CD61A2750FCF800BEE952;
 			packageReferences = (
-				7A5CD6622750FD9200BEE952 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				7A5CD68C2751266B00BEE952 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				7A5CD6D72752797500BEE952 /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
@@ -587,7 +588,6 @@
 				7A5CD6732751045400BEE952 /* CountryListViewModel.swift in Sources */,
 				7A5CD68927511F5700BEE952 /* Country.swift in Sources */,
 				7A5CD6A327512B0A00BEE952 /* CountryDetailViewController.swift in Sources */,
-				7A5CD6BE2751858100BEE952 /* UIImageView+Extension.swift in Sources */,
 				7A5CD6852751138600BEE952 /* URLRequest+Extensions.swift in Sources */,
 				7A5CD6B82751527100BEE952 /* UIView+Extensions.swift in Sources */,
 				7A5CD6BC27517E0500BEE952 /* CountryDetailView.swift in Sources */,
@@ -779,7 +779,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Countries/Info.plist;
-				INFOPLIST_KEY_NSMainNibFile = Home;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -811,7 +810,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Countries/Info.plist;
-				INFOPLIST_KEY_NSMainNibFile = Home;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -968,14 +966,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7A5CD6622750FD9200BEE952 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 		7A5CD68C2751266B00BEE952 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -995,11 +985,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7A5CD6632750FD9200BEE952 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7A5CD6622750FD9200BEE952 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
 		7A5CD68D2751266B00BEE952 /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7A5CD68C2751266B00BEE952 /* XCRemoteSwiftPackageReference "RxSwift" */;

@@ -17,7 +17,7 @@ final class CountryTableViewCell: UITableViewCell {
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var favButton: UIButton! {
         didSet {
-            favButton.imageView?.alpha = 0.3
+            favButton.tintColor = .darkGray.withAlphaComponent(0.3)
         }
     }
     @IBOutlet weak var countryListCellView: UIView!
@@ -29,7 +29,6 @@ final class CountryTableViewCell: UITableViewCell {
     }
     @IBAction func favButtonPressed(_ sender: Any) {
         viewModel?.changeFavoriteCountry()
-        
     }
 }
 

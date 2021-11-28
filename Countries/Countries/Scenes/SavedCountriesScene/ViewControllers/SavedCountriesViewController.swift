@@ -46,7 +46,7 @@ extension SavedCountriesViewController {
 
 // MARK: - Observe Data Source
 extension SavedCountriesViewController {
-    func observeDataSource(){
+    private func observeDataSource(){
         guard let viewModel = viewModel else { return }
         
         viewModel.savedCountryListDatasource.subscribe(onNext: { [weak self] data in
@@ -58,7 +58,9 @@ extension SavedCountriesViewController {
             .compactMap{ $0 }
             .subscribe(onNext: { [weak self] navigationItem in
                 guard let self = self else { return }
-                let countryDetailViewController = CountryDetailBuilder.make(repository: navigationItem.repository, code: navigationItem.code, isFav: navigationItem.isFav)
+                let countryDetailViewController = CountryDetailBuilder.make(repository: navigationItem.repository,
+                                                                            code: navigationItem.code,
+                                                                            isFav: navigationItem.isFav)
                 self.navigationController?.pushViewController(countryDetailViewController, animated: true)
             }).disposed(by: bag)
         

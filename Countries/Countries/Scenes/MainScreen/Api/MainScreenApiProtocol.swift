@@ -103,21 +103,17 @@ final class MainScreenApiImplementation: MainScreenApiProtocol {
                 }
             }
         } catch {
-            //return []
             print("Error")
         }
         return countryCodes
     }
 }
+
 //MARK: - Helper Methods
 extension MainScreenApiImplementation {
     private func updateSavedCountryListDatasource(with country: [CountryModel]) {
         self.countryListDatasource.accept(country)
     }
-    
-    //    private func updateSavedCountryListCodeDatasource(with countryCode: [String]) {
-    //        self.savedCountryCodesDatasource.accept(savedCountryCodesDatasource.value + countryCode)
-    //    }
 }
 
 

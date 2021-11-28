@@ -17,6 +17,7 @@ final class CountryDetailApiImplementation: CountryDetailApiProtocol {
         return URLRequest.load(resource: Resource<CountryDetails>(url: url))
     }
 }
+
 //- FOR TESTING:
 final class CountryDetailApiImplementationMock: CountryDetailApiProtocol {
     func getCountryDetails(code: String) -> Observable<CountryDetails> {

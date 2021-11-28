@@ -12,7 +12,6 @@ import RxCocoa
 protocol CountryTableViewCellViewModelProtocol {
     var mainScreenApi: MainScreenApiProtocol? { get set }
     func changeFavoriteCountry()
-    
 }
 
 final class CountryTableViewCellViewModel: CountryTableViewCellViewModelProtocol {
@@ -26,6 +25,7 @@ final class CountryTableViewCellViewModel: CountryTableViewCellViewModelProtocol
         self.code = code
         self.isFav = isFav
     }
+    
     //MARK: - Public Methods
     func changeFavoriteCountry() {
         mainScreenApi?.changeFavoriteCountry(code: code, isFav: isFav)

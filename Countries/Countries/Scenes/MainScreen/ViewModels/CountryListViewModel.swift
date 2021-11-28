@@ -10,7 +10,6 @@ import RxSwift
 import RxCocoa
 
 protocol CountryListViewModelProtocol {
-    
     var countryListDatasource: BehaviorRelay<[CountryModel]> { get set }
     var isLoading: BehaviorRelay<Bool> { get set }
     var onError: BehaviorRelay<Bool> { get set }
@@ -23,7 +22,6 @@ protocol CountryListViewModelProtocol {
 }
 
 final class CountryListViewModel: CountryListViewModelProtocol {
-    
     // MARK: - Properties
     private var limit: Int = 10
     private var bag = DisposeBag()
@@ -77,7 +75,7 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     
     func getCellViewModels(indexpath: IndexPath) -> CountryTableViewCellViewModel {
         let cellVM = CountryTableViewCellViewModel(code: countryListDatasource.value[indexpath.row].code,
-                                                       isFav: countryListDatasource.value[indexpath.row].isFav)
+                                                   isFav: countryListDatasource.value[indexpath.row].isFav)
         cellVM.mainScreenApi = self.mainScreenApi
         return cellVM
     }

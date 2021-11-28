@@ -34,7 +34,7 @@ final class CountryListViewController: UIViewController {
 
 //  MARK: - Arrange Views
 extension CountryListViewController {
-    func arrangeViews() {
+    private func arrangeViews() {
         title = "Countries"
         self.tabBarController?.tabBar.isHidden = false
         let nibCell = UINib(nibName: "CountryTableViewCell", bundle: nil)
@@ -46,7 +46,7 @@ extension CountryListViewController {
 
 // MARK: - Observe Data Source
 extension CountryListViewController {
-    func observeDataSource(){
+    private func observeDataSource(){
         guard let viewModel = viewModel else { return }
         
         viewModel.countryListDatasource.subscribe(onNext: { [weak self] data in
@@ -58,7 +58,9 @@ extension CountryListViewController {
             .compactMap{ $0 }
             .subscribe(onNext: { [weak self] navigationItem in
                 guard let self = self else { return }
-                let countryDetailViewController = CountryDetailBuilder.make(repository: navigationItem.repository, code: navigationItem.code, isFav: navigationItem.isFav)
+                let countryDetailViewController = CountryDetailBuilder.make(repository: navigationItem.repository,
+                                                                            code: navigationItem.code,
+                                                                            isFav: navigationItem.isFav)
                 self.navigationController?.pushViewController(countryDetailViewController, animated: true)
             }).disposed(by: bag)
         

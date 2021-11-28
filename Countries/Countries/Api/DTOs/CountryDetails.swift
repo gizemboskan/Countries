@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 // MARK: - Welcome
 struct CountryDetails: Decodable {
     let data: DataClass
@@ -13,17 +14,15 @@ struct CountryDetails: Decodable {
 
 // MARK: - DataClass
 struct DataClass: Decodable {
-    let capital, code: String
-    let currencyCodes: [String]
+    let code: String
     let flagImageURI: String
     let name: String
-    let numRegions: Int
     let wikiDataID: String
     
     enum CodingKeys: String, CodingKey {
-        case capital, code, currencyCodes
+        case code
         case flagImageURI = "flagImageUri"
-        case name, numRegions
+        case name
         case wikiDataID = "wikiDataId"
     }
 }

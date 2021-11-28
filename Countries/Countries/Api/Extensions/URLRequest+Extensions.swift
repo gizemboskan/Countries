@@ -21,7 +21,7 @@ extension URLRequest {
                 let request = URLRequest(url: url)
                 return URLSession.shared.rx.response(request: request)
             }.map{ response, data -> T in
-                print(String(decoding: data, as: UTF8.self))
+                // print(String(decoding: data, as: UTF8.self))
                 if 200..<300 ~= response.statusCode {
                     return try JSONDecoder().decode(T.self, from: data)
                 }else {
