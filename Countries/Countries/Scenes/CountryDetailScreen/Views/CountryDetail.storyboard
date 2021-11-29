@@ -26,18 +26,23 @@
                                 <imageReference key="image" image="photo" catalog="system" symbolScale="default"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-IX-wuZ">
-                                <rect key="frame" x="20" y="484" width="101" height="17"/>
+                                <rect key="frame" x="20" y="476" width="101" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7P-q8-mGx">
-                                <rect key="frame" x="20" y="529" width="170" height="32"/>
+                                <rect key="frame" x="16" y="505" width="170" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="WgM-NR-hrX"/>
                                     <constraint firstAttribute="height" constant="32" id="fzW-C9-tIY"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.right" catalog="system" imagePlacement="trailing">
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" cornerStyle="capsule">
+                                    <imageReference key="image" image="arrowshape.turn.up.right" catalog="system" symbolScale="small"/>
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="For More Information  ">
                                             <attributes>
@@ -49,7 +54,7 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCk-KY-fwL">
-                                <rect key="frame" x="131" y="484" width="35.5" height="17"/>
+                                <rect key="frame" x="131" y="476" width="35.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,13 +64,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cCk-KY-fwL" firstAttribute="leading" secondItem="7Ts-IX-wuZ" secondAttribute="trailing" constant="10" id="1De-RT-fNl"/>
-                            <constraint firstItem="Y7P-q8-mGx" firstAttribute="top" secondItem="7Ts-IX-wuZ" secondAttribute="bottom" constant="28" id="4DM-kj-RRK"/>
+                            <constraint firstItem="Y7P-q8-mGx" firstAttribute="top" secondItem="7Ts-IX-wuZ" secondAttribute="bottom" constant="12" id="4DM-kj-RRK"/>
                             <constraint firstItem="whJ-3b-LzP" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" id="Kdh-DJ-aBG"/>
                             <constraint firstItem="7Ts-IX-wuZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="a7S-c2-s2s"/>
                             <constraint firstItem="whJ-3b-LzP" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fim-kF-aVp"/>
                             <constraint firstItem="whJ-3b-LzP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gBd-rm-Rue"/>
-                            <constraint firstItem="7Ts-IX-wuZ" firstAttribute="top" secondItem="whJ-3b-LzP" secondAttribute="bottom" constant="20" id="qL2-0L-o7r"/>
-                            <constraint firstItem="Y7P-q8-mGx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="uBh-GQ-51S"/>
+                            <constraint firstItem="7Ts-IX-wuZ" firstAttribute="top" secondItem="whJ-3b-LzP" secondAttribute="bottom" constant="12" id="qL2-0L-o7r"/>
+                            <constraint firstItem="Y7P-q8-mGx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="uBh-GQ-51S"/>
                             <constraint firstItem="cCk-KY-fwL" firstAttribute="centerY" secondItem="7Ts-IX-wuZ" secondAttribute="centerY" id="xRP-em-qTy"/>
                         </constraints>
                     </view>
