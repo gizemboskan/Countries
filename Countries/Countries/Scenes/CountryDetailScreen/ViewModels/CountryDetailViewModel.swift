@@ -48,9 +48,9 @@ final class CountryDetailViewModel: CountryDetailViewModelProtocol {
             .observe(on: MainScheduler.instance)
             .do(onError: { _ in self.onError.accept(true) })
             .do(onDispose: { [isLoading] in isLoading.accept(false) })
-                .subscribe(onNext: { [weak self] country in
-                    self?.updateCountryDetailDatasource(with: country)
-                })
+            .subscribe(onNext: { [weak self] country in
+                self?.updateCountryDetailDatasource(with: country)
+            })
                 .disposed(by: bag)
                 }
     

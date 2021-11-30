@@ -115,27 +115,3 @@ extension CountryListRepositoryImplementation {
         self.countryListDatasource.accept(country)
     }
 }
-
-
-//MARK: - FOR TESTING:
-final class CountryListRepositoryImplementationMock: CountryListRepository {
-    func changeFavoriteCountry(code: String, isFav: Bool) {
-        
-    }
-    
-    func getFavorites() {
-        
-    }
-    
-    func checkFavoriteUpdates() {
-        
-    }
-    
-    var countryListDatasource = BehaviorRelay<[CountryModel]>(value: [])
-    var savedCountryCodesDatasource = BehaviorRelay<[String]>(value: [])
-    var isLoading = BehaviorRelay<Bool>(value: false)
-    var onError = BehaviorRelay<Bool> (value: false)
-    func getCountryList(limit: Int) {
-        
-    }
-}

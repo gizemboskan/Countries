@@ -31,6 +31,6 @@ class CountriesTests: XCTestCase {
         viewModel?.getCountryDetail()
         XCTAssertEqual(viewModel?.countryDetailDatasource.value?.data.code, "US")
         XCTAssertNotEqual(viewModel?.countryDetailDatasource.value?.data.code, "TR")
-
+        
     }
 }
