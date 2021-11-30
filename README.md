@@ -37,7 +37,7 @@ Countries App an iOS app created by using GeoDB Cities API. Users may browse thr
 
 We have 3 layers in this project: 
   * *Data layer(repository):* consist of the api logics for "Main" and "Saved" screens. It is the only source of truth for the country list. It contains both fetched and persisted data. 
-  * *ViewModel layer:* consists of only business logics for each seperated screens and it communicates with data layer and conduct the information to the view layer like MVVM suggested. That layer serves as an intermidiator between data and view layers.
+  * *ViewModel layer:* consists of only business logics for each seperated screens and it communicates with data layer and conduct the information to the view layer like MVVM suggested. That layer serves as an intermediator between data and view layers.
   * *View layer:* consists of view controllers and storyboards, and doesn't include any business logic like MVVM suggested.
     
 
