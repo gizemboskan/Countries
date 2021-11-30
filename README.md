@@ -24,6 +24,7 @@ Countries App an iOS app created by using GeoDB Cities API. Users may browse thr
 * Storyboard approach for UI design; support only portrait mode for various devices.
 * CoreData, for saving country codes
 * Separate networking layer by protocol extensions
+* Unit testing *(just for an example implementation)* 
 * Some reusable views, custom alerts, activity indicators, organized folder structure.
 
 
@@ -35,9 +36,9 @@ Countries App an iOS app created by using GeoDB Cities API. Users may browse thr
 ## Implementation and Features
 
 We have 3 layers in this project: 
-  * *Data layer(repository):* consist of the api logics for main and saved screens. It is the only source of truth for the country list. It contains both fetched and persisted data. 
+  * *Data layer(repository):* consist of the api logics for "Main" and "Saved" screens. It is the only source of truth for the country list. It contains both fetched and persisted data. 
   * *ViewModel layer:* consists of only business logics for each seperated screens and it communicates with data layer and conduct the information to the view layer like MVVM suggested. That layer serves as an intermidiator between data and view layers.
-  * *View layer:* consists of viewcontrollers and storyboards, and doesn't include any business logic like MVVM suggested.
+  * *View layer:* consists of view controllers and storyboards, and doesn't include any business logic like MVVM suggested.
     
 
 ## Requirements
@@ -51,7 +52,7 @@ We have 3 layers in this project:
 ## Previews for Usage 
 | Preview |  
 | --- | 
-|  | 
+| ![Preview](gifs/preview.gif) | 
 
 
 ## License
