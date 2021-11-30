@@ -9,25 +9,28 @@ import XCTest
 @testable import Countries
 
 class CountriesTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    enum MockCountry: String {
+        case Country1
+        case Country2
+        case Country3
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    private var viewModel: CountryDetailViewModelProtocol?
+    private var mockCountryDetailApi: CountryDetailApiProtocol?
+    
+    override func setUp() {
+        // To only test with Country1:
+        viewModel = CountryDetailViewModel(code: MockCountry.Country1.rawValue, isFav: true)
+        mockCountryDetailApi = CountryDetailApiImplementationMock()
+        viewModel?.countryDetailApi = mockCountryDetailApi
     }
+    
+    func testCountryDetail()  {
+        
+        viewModel?.getCountryDetail()
+        XCTAssertEqual(viewModel?.countryDetailDatasource.value?.data.code, "US")
+        XCTAssertNotEqual(viewModel?.countryDetailDatasource.value?.data.code, "TR")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
