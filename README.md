@@ -44,7 +44,7 @@ We have 3 layers in this project:
 ## Requirements
 
 * Xcode 13.1
-* Swift 5
+* Swift 5.5
 * iOS 15.0 deployment target
 * Only portrait mode
 
