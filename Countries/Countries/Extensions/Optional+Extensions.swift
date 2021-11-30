@@ -76,3 +76,18 @@ extension Optional where Wrapped == Bool {
         return self == bool
     }
 }
+
+// MARK: - Optional+Helpers
+extension Optional {
+    
+    struct FoundNilWhileUnwrappingError: Error { }
+    
+    func unwrap() throws -> Wrapped {
+        switch self {
+        case .some(let wrapped):
+            return wrapped
+        case .none:
+            throw FoundNilWhileUnwrappingError()
+        }
+    }
+}

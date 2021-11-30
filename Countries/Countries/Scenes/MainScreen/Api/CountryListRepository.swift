@@ -1,5 +1,5 @@
 //
-//  MainScreenApi.swift
+//  CountryListRepository.swift
 //  Countries
 //
 //  Created by Gizem Boskan on 26.11.2021.
@@ -11,7 +11,7 @@ import RxCocoa
 import CoreData
 import UIKit
 
-protocol MainScreenApiProtocol {
+protocol CountryListRepository {
     /// It ıs the only source of truth for the country list. It contains both fetched data and persisted data
     var countryListDatasource: BehaviorRelay<[CountryModel]> { get set }
     var isLoading: BehaviorRelay<Bool> { get set }
@@ -20,7 +20,7 @@ protocol MainScreenApiProtocol {
     func changeFavoriteCountry(code: String, isFav: Bool)
 }
 
-final class MainScreenApiImplementation: MainScreenApiProtocol {
+final class CountryListRepositoryImplementation: CountryListRepository {
     
     // MARK: - Properties
     private var limit: Int = 10
@@ -110,7 +110,7 @@ final class MainScreenApiImplementation: MainScreenApiProtocol {
 }
 
 //MARK: - Helper Methods
-extension MainScreenApiImplementation {
+extension CountryListRepositoryImplementation {
     private func updateSavedCountryListDatasource(with country: [CountryModel]) {
         self.countryListDatasource.accept(country)
     }
@@ -118,7 +118,7 @@ extension MainScreenApiImplementation {
 
 
 //MARK: - FOR TESTING:
-final class MainScreenApiImplementationMock: MainScreenApiProtocol {
+final class CountryListRepositoryImplementationMock: CountryListRepository {
     func changeFavoriteCountry(code: String, isFav: Bool) {
         
     }

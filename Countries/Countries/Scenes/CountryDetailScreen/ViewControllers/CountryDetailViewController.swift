@@ -16,21 +16,22 @@ final class CountryDetailViewController: UIViewController {
     private let bag = DisposeBag()
     var viewModel: CountryDetailViewModelProtocol?
     
-    @IBOutlet weak var countryDetailView: CountryDetailView!
+    @IBOutlet weak var countryDetailView: UIView!
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryCodeLabel: UILabel!
     @IBOutlet weak var countryDetailButton: UIButton!
-    var favButton: UIBarButtonItem?
+    private var favButton: UIBarButtonItem?
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let viewModel = viewModel else { return }
         observeDataSource()
+        viewModel.getCountryDetail()
         favButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self,
                                     action: #selector(favButtonPressed))
         navigationItem.rightBarButtonItem = favButton
         self.tabBarController?.tabBar.isHidden = true
-        guard let viewModel = viewModel else { return }
         favButton?.tintColor = viewModel.isFav ? .black : .darkGray.withAlphaComponent(0.3)
     }
     
@@ -46,19 +47,11 @@ extension CountryDetailViewController {
     private func observeDataSource(){
         guard let viewModel = viewModel else { return }
         
-        viewModel.countryCodeDatasource
-            .subscribe(onNext: { [weak self] data in
-                guard let self = self,
-                      let countryCode = data else { return }
-                self.viewModel?.getcountryDetails(countryCode: countryCode)
-            }).disposed(by: bag)
-        
         viewModel.countryDetailDatasource
             .subscribe(onNext: { [weak self] data in
                 guard let self = self,
                       let countryDetail = data else { return }
                 self.observeUI(with: countryDetail)
-                
             }).disposed(by: bag)
         
         viewModel.isLoading.asObservable()
@@ -93,7 +86,7 @@ extension CountryDetailViewController {
             .disposed(by: bag)
     }
     
-    private func observeUI(with countryDetails: CountryDetails?) {
+    private func observeUI(with countryDetail: CountryDetail?) {
         guard let viewModel = viewModel else { return }
         let countryDetail = viewModel.countryDetailDatasource.value?.data
         let countryCode = countryDetail?.code

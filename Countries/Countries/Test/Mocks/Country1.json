@@ -1,0 +1,13 @@
+{
+    "data": {
+        "capital": "Washington, D.C.",
+        "code": "US",
+        "currencyCodes": [
+            "USD"
+        ],
+        "flagImageUri": "http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20the%20United%20States.svg",
+        "name": "United States of America",
+        "numRegions": 56,
+        "wikiDataId": "Q30"
+    }
+}

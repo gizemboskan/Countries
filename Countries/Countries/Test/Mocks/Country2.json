@@ -1,0 +1,13 @@
+{
+    "data": {
+        "capital": null,
+        "code": "VA",
+        "currencyCodes": [
+            "EUR"
+        ],
+        "flagImageUri": "http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20the%20Vatican%20City.svg",
+        "name": "Vatican City",
+        "numRegions": 0,
+        "wikiDataId": "Q237"
+    }
+}

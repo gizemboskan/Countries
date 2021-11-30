@@ -15,7 +15,7 @@ final class SavedCountriesViewController: UIViewController {
     // MARK: - Properties
     private let bag = DisposeBag()
     var viewModel: SavedCountriesViewModelProtocol?
-    @IBOutlet weak var savedCountriesTableView: SavedCountriesView!
+    @IBOutlet weak var savedCountriesTableView: UITableView!
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
@@ -114,5 +114,6 @@ extension SavedCountriesViewController: UITableViewDataSource, UITableViewDelega
         let countryCode = country.code
         let isFav = country.isFav
         viewModel.navigateToDetail(code: countryCode, isFav: isFav)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

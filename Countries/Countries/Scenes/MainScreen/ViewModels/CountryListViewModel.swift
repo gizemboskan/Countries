@@ -13,8 +13,8 @@ protocol CountryListViewModelProtocol {
     var countryListDatasource: BehaviorRelay<[CountryModel]> { get set }
     var isLoading: BehaviorRelay<Bool> { get set }
     var onError: BehaviorRelay<Bool> { get set }
-    var navigateToDetailReady: BehaviorRelay<(repository: MainScreenApiProtocol, code: String, isFav: Bool)?> { get set }
-    var mainScreenApi: MainScreenApiProtocol? { get set }
+    var navigateToDetailReady: BehaviorRelay<(repository: CountryListRepository, code: String, isFav: Bool)?> { get set }
+    var countryListRepository: CountryListRepository? { get set }
     
     func getCountryList()
     func navigateToDetail(code: String, isFav: Bool)
@@ -29,21 +29,16 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     var countryListDatasource = BehaviorRelay<[CountryModel]>(value: [])
     var isLoading = BehaviorRelay<Bool>(value: false)
     var onError = BehaviorRelay<Bool>(value: false)
-    var navigateToDetailReady = BehaviorRelay<(repository: MainScreenApiProtocol, code: String, isFav: Bool)?>(value: nil)
-    var mainScreenApi: MainScreenApiProtocol?
-    
-    // MARK: - Initilizations
-    init() {
-        
-    }
+    var navigateToDetailReady = BehaviorRelay<(repository: CountryListRepository, code: String, isFav: Bool)?>(value: nil)
+    var countryListRepository: CountryListRepository?
     
     //MARK: - Public Methods
     func getCountryList() {
-        guard let mainScreenApi = mainScreenApi else { return }
+        guard let countryListRepository = countryListRepository else { return }
         
-        mainScreenApi.getCountryList(limit: limit)
+        countryListRepository.getCountryList(limit: limit)
         
-        mainScreenApi.countryListDatasource
+        countryListRepository.countryListDatasource
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] countryListResponse in
                 guard let self = self else { return }
@@ -51,7 +46,7 @@ final class CountryListViewModel: CountryListViewModelProtocol {
             })
             .disposed(by: bag)
         
-        mainScreenApi.isLoading
+        countryListRepository.isLoading
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
                 guard let self = self else { return }
@@ -59,7 +54,7 @@ final class CountryListViewModel: CountryListViewModelProtocol {
             })
             .disposed(by: bag)
         
-        mainScreenApi.onError
+        countryListRepository.onError
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] onError in
                 guard let self = self else { return }
@@ -69,14 +64,14 @@ final class CountryListViewModel: CountryListViewModelProtocol {
     }
     
     func navigateToDetail(code: String, isFav: Bool) {
-        guard let mainScreenApi = mainScreenApi else { return }
-        navigateToDetailReady.accept((repository: mainScreenApi, code: code, isFav: isFav))
+        guard let countryListRepository = countryListRepository else { return }
+        navigateToDetailReady.accept((repository: countryListRepository, code: code, isFav: isFav))
     }
     
     func getCellViewModels(indexpath: IndexPath) -> CountryTableViewCellViewModel {
         let cellVM = CountryTableViewCellViewModel(code: countryListDatasource.value[indexpath.row].code,
                                                    isFav: countryListDatasource.value[indexpath.row].isFav)
-        cellVM.mainScreenApi = self.mainScreenApi
+        cellVM.countryListRepository = self.countryListRepository
         return cellVM
     }
 }

@@ -1,0 +1,13 @@
+{
+    "data": {
+        "capital": "Niamey",
+        "code": "NE",
+        "currencyCodes": [
+            "XOF"
+        ],
+        "flagImageUri": "http://commons.wikimedia.org/wiki/Special:FilePath/Flag%20of%20Niger.svg",
+        "name": "Niger",
+        "numRegions": 7,
+        "wikiDataId": "Q1032"
+    }
+}

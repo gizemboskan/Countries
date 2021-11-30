@@ -9,18 +9,18 @@ import Foundation
 import RxSwift
 
 protocol CountryDetailApiProtocol {
-    func getCountryDetails(code: String) -> Observable<CountryDetails>
+    func getCountryDetail(code: String) -> Observable<CountryDetail>
 }
 final class CountryDetailApiImplementation: CountryDetailApiProtocol {
-    func getCountryDetails(code: String) -> Observable<CountryDetails> {
+    func getCountryDetail(code: String) -> Observable<CountryDetail> {
         guard let url = URL.getContryDetails(code: code) else { return .empty() }
-        return URLRequest.load(resource: Resource<CountryDetails>(url: url))
+        return URLRequest.load(resource: Resource<CountryDetail>(url: url))
     }
 }
 
 //- FOR TESTING:
-final class CountryDetailApiImplementationMock: CountryDetailApiProtocol {
-    func getCountryDetails(code: String) -> Observable<CountryDetails> {
-        return .empty()
-    }
-}
+//final class CountryDetailApiImplementationMock: CountryDetailApiProtocol {
+//    func getCountryDetail(code: String) -> Observable<CountryDetail> {
+//        return .empty()
+//    }
+//}

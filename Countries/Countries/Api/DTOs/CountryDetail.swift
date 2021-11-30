@@ -1,5 +1,5 @@
 //
-//  CountryDetails.swift
+//  CountryDetail.swift
 //  Countries
 //
 //  Created by Gizem Boskan on 26.11.2021.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct CountryDetails: Decodable {
+// MARK: - CountryDetail
+struct CountryDetail: Decodable {
     let data: DataClass
 }
 

@@ -10,16 +10,15 @@ import RxSwift
 import RxCocoa
 
 protocol CountryDetailViewModelProtocol {
-    var countryCodeDatasource: BehaviorRelay<String?> { get set }
-    var countryDetailDatasource: BehaviorRelay<CountryDetails?> { get set }
+    var countryDetailDatasource: BehaviorRelay<CountryDetail?> { get set }
     var isLoading: BehaviorRelay<Bool> { get set }
     var onError: BehaviorRelay<Bool> { get set }
     var countryDetailApi: CountryDetailApiProtocol? { get set }
-    var mainScreenApi: MainScreenApiProtocol? { get set }
+    var countryListRepository: CountryListRepository? { get set }
     var isFav: Bool { get set }
     
     func changeFavoriteCountry()
-    func getcountryDetails(countryCode: String)
+    func getCountryDetail()
 }
 
 final class CountryDetailViewModel: CountryDetailViewModelProtocol {
@@ -34,38 +33,41 @@ final class CountryDetailViewModel: CountryDetailViewModelProtocol {
     }
     var isLoading = BehaviorRelay<Bool>(value: false)
     var onError = BehaviorRelay<Bool>(value: false)
-    var countryCodeDatasource = BehaviorRelay<String?>(value: nil)
-    var countryDetailDatasource = BehaviorRelay<CountryDetails?>(value: nil)
+    var countryDetailDatasource = BehaviorRelay<CountryDetail?>(value: nil)
     var countryDetailApi: CountryDetailApiProtocol?
-    var mainScreenApi: MainScreenApiProtocol?
+    var countryListRepository: CountryListRepository?
     
-    func getcountryDetails(countryCode: String) {
-        Observable.just((countryCode))
+    func getCountryDetail() {
+        Observable.just((code))
             .do( onNext: { [isLoading] _ in
                 isLoading.accept(true)
             })
-                .flatMap { [weak self] countryCode in
-                    self?.countryDetailApi?.getCountryDetails(code: countryCode) ?? .empty()
+            .flatMap { [weak self] countryCode in
+                self?.countryDetailApi?.getCountryDetail(code: countryCode) ?? .empty()
+            }
+            .observe(on: MainScheduler.instance)
+            .do(onError: { _ in self.onError.accept(true) })
+            .do(onDispose: { [isLoading] in isLoading.accept(false) })
+                .subscribe(onNext: { [weak self] country in
+                    self?.updateCountryDetailDatasource(with: country)
+                })
+                .disposed(by: bag)
                 }
-                .observe(on: MainScheduler.instance)
-                .do(onError: { _ in self.onError.accept(true) })
-                    .do(onDispose: { [isLoading] in isLoading.accept(false) })
-                        .subscribe(onNext: { [weak self] country in
-                            self?.updateCountryDetailDatasource(with: country)
-                        })
-                        .disposed(by: bag)
-                        }
     
     func changeFavoriteCountry() {
-        guard let mainScreenApi = mainScreenApi else { return }
-        mainScreenApi.changeFavoriteCountry(code: code, isFav: isFav)
+        guard let countryListRepository = countryListRepository else { return }
+        countryListRepository.changeFavoriteCountry(code: code, isFav: isFav)
         isFav.toggle()
+    }
+    
+    deinit {
+        print("no leak CountryDetailViewModel!")
     }
 }
 
 //MARK: - Helper Methods
 extension CountryDetailViewModel {
-    private func updateCountryDetailDatasource(with countryDetail: CountryDetails) {
+    private func updateCountryDetailDatasource(with countryDetail: CountryDetail) {
         self.countryDetailDatasource.accept(countryDetail)
     }
 }

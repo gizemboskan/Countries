@@ -10,13 +10,13 @@ import RxSwift
 import RxCocoa
 
 protocol CountryTableViewCellViewModelProtocol {
-    var mainScreenApi: MainScreenApiProtocol? { get set }
+    var countryListRepository: CountryListRepository? { get set }
     func changeFavoriteCountry()
 }
 
 final class CountryTableViewCellViewModel: CountryTableViewCellViewModelProtocol {
     
-    var mainScreenApi: MainScreenApiProtocol?
+    var countryListRepository: CountryListRepository?
     private var bag = DisposeBag()
     private var code: String
     private var isFav: Bool
@@ -28,6 +28,6 @@ final class CountryTableViewCellViewModel: CountryTableViewCellViewModelProtocol
     
     //MARK: - Public Methods
     func changeFavoriteCountry() {
-        mainScreenApi?.changeFavoriteCountry(code: code, isFav: isFav)
+        countryListRepository?.changeFavoriteCountry(code: code, isFav: isFav)
     }
 }

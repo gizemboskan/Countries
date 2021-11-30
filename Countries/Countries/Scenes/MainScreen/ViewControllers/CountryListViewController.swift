@@ -15,7 +15,7 @@ final class CountryListViewController: UIViewController {
     // MARK: - Properties
     private let bag = DisposeBag()
     var viewModel: CountryListViewModelProtocol?
-    @IBOutlet weak var countryListTableView: MainScreenView!
+    @IBOutlet weak var countryListTableView: UITableView!
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
@@ -118,5 +118,6 @@ extension CountryListViewController: UITableViewDataSource, UITableViewDelegate 
         let countryCode = country.code
         let isFav = country.isFav
         viewModel.navigateToDetail(code: countryCode, isFav: isFav)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
